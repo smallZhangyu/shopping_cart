@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Shop({ shops }) {
+function Shop({ shops, cart, onAddCart }) {
   return (
     <>
       <style jsx>{`
@@ -118,7 +118,7 @@ function Shop({ shops }) {
                   <h3 className="title">{ shop.name }</h3>
                   <div className="price">￥<b>{ shop.price }</b></div>
                   <div className="count">库存 <b>{ shop.count }</b></div>
-                  <div className="cart iconfont icon-PC-cart"></div>
+                  <div className="cart iconfont icon-PC-cart" onClick={onAddCart.bind(this, shop)}></div>
                 </div>
               </li>
             );
@@ -129,7 +129,7 @@ function Shop({ shops }) {
         <div className="myCart">
           <span className="iconfont icon-PC-cart"></span>
           我的购物车
-          <i className="shop_num">0</i>
+          <i className="shop_num">{cart.length}</i>
         </div>
       </div>
 

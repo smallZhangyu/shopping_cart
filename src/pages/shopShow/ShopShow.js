@@ -1,26 +1,31 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { addCartAction } from '../../store/shopShow/createActions';
 
 import Shop  from './shopUI';
 
 class ShopShow extends Component {
   render() {
-    const { shops } = this.props;
+    const { shops, cart, onAddCart } = this.props;
     return (
-      <Shop shops={shops} />
+      <Shop shops={shops} cart={cart} onAddCart={onAddCart} />
     );
   }
 }
 
 const mapStateToProps = (state) => {
   return {
-    shops: state.showReducers
+    shops: state.showReducers.shopList,
+    cart: state.showReducers.cartList
   };
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-
+    onAddCart: (shop) => {
+      const action = addCartAction(shop);
+      dispatch(action);
+    }
   };
 }
 

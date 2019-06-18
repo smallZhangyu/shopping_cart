@@ -1,4 +1,5 @@
 import React from 'react';
+import CartUI from './cartUI';
 
 function Shop({ shops, cart, onAddCart }) {
   return (
@@ -132,7 +133,7 @@ function Shop({ shops, cart, onAddCart }) {
           <i className="shop_num">{cart.length}</i>
         </div>
       </div>
-
+      <CartUI isShow={true} cart_shop={cart} />
     </>
   );
 }

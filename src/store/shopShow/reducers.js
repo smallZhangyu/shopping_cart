@@ -1,4 +1,4 @@
-import { ADD_CART } from './actionTypes';
+import { ADD_CART, CART_ADD_COUNT, CART_SUBSTRACT_COUNT } from './actionTypes';
 
 const defaultState = {
   shopList: [
@@ -62,6 +62,19 @@ export default function (state = defaultState, action) {
         newState.cart.cartList.push(resData);
       }
       newState.cart.total++;
+
+      newState.cart.payTotal = 0;
+      newState.cart.cartList.forEach(function(item, index) {
+        newState.cart.payTotal += item.price*item.cart_count;
+      });
+
+      return newState;
+
+    case CART_ADD_COUNT:
+
+      return newState;
+
+    case CART_SUBSTRACT_COUNT:
 
       return newState;
 

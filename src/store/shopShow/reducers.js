@@ -28,12 +28,16 @@ const defaultState = {
     },
     {
       name: "创维OLED电视",
-      price: "98",
+      price: "23498",
       picture: "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1217386906,936469464&fm=26&gp=0.jpg",
       count: 5
     }
   ],
-  cartList: []
+  cart: {
+    total: 0,
+    payTotal: 0,
+    cartList: []
+  }
 };
 
 export default function (state = defaultState, action) {
@@ -41,7 +45,24 @@ export default function (state = defaultState, action) {
 
   switch(action.type) {
     case ADD_CART:
-      newState.cartList.push(action.data);
+      const resData = action.data;
+      let hitIndex = 0;
+
+      let result = newState.cart.cartList.some(function(item, index) {
+        if (item.name == resData.name) {
+          hitIndex = index;
+          return true;
+        }
+      });
+
+      if (result) {
+        newState.cart.cartList[hitIndex].cart_count++;
+      } else {
+        resData["cart_count"] = 1;
+        newState.cart.cartList.push(resData);
+      }
+      newState.cart.total++;
+
       return newState;
 
     default:

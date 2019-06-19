@@ -16,7 +16,7 @@ class ShopShow extends Component {
 const mapStateToProps = (state) => {
   return {
     shops: state.showReducers.shopList,
-    cart: state.showReducers.cartList
+    cart: state.showReducers.cart
   };
 }
 

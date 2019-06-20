@@ -71,11 +71,27 @@ export default function (state = defaultState, action) {
       return newState;
 
     case CART_ADD_COUNT:
+      if (newState.cart.cartList[action.index].cart_count < newState.cart.cartList[action.index].count) {
+        newState.cart.cartList[action.index].cart_count++;
+        newState.cart.total++;
 
+        newState.cart.payTotal = 0;
+        newState.cart.cartList.forEach(function(item, index) {
+          newState.cart.payTotal += item.price*item.cart_count;
+        });
+      }
       return newState;
 
     case CART_SUBSTRACT_COUNT:
+      if (newState.cart.cartList[action.index].cart_count !== 1) {
+        newState.cart.cartList[action.index].cart_count--;
+        newState.cart.total--;
 
+        newState.cart.payTotal = 0;
+        newState.cart.cartList.forEach(function(item, index) {
+          newState.cart.payTotal += item.price*item.cart_count;
+        });
+      }
       return newState;
 
     default:

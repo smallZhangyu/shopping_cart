@@ -5,12 +5,12 @@ export const addCartAction = (data) => ({
   data
 })
 
-export const cartCountAddAction = (data) => ({
+export const cartCountAddAction = (index) => ({
   type: CART_ADD_COUNT,
-  data
+  index
 })
 
-export const cartCountSubtractAction = (data) => ({
+export const cartCountSubtractAction = (index) => ({
   type: CART_SUBSTRACT_COUNT,
-  data
+  index
 })

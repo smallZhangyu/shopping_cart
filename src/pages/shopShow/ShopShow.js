@@ -27,13 +27,13 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(action);
     },
 
-    onCartAdd: (shop) => {
-      const action = cartCountAddAction(shop);
+    onCartAdd: (index) => {
+      const action = cartCountAddAction(index);
       dispatch(action);
     },
 
-    onCartSubtract: (shop) => {
-      const action = cartCountSubtractAction(shop);
+    onCartSubtract: (index) => {
+      const action = cartCountSubtractAction(index);
       dispatch(action);
     }
   };

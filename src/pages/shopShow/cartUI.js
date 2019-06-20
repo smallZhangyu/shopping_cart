@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function CartUI({cart_shop, isShow, onCloseLayer, onCartSubtract, onCartAdd}) {
   return (
@@ -151,7 +152,7 @@ function CartUI({cart_shop, isShow, onCloseLayer, onCartSubtract, onCartAdd}) {
 
           <div className="layer_footer">
             <span className="payCount">￥ <span>{cart_shop.payTotal}</span></span>
-            <span className="payBtn">结 算</span>
+            <Link to="/order"><span className="payBtn">结 算</span></Link>
           </div>
 
         </div>

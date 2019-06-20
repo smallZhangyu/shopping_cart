@@ -49,7 +49,7 @@ export default function (state = defaultState, action) {
       let hitIndex = 0;
 
       let result = newState.cart.cartList.some(function(item, index) {
-        if (item.name == resData.name) {
+        if (item.name === resData.name) {
           hitIndex = index;
           return true;
         }

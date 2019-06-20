@@ -27,6 +27,29 @@ class Shop extends Component {
           .shop_container {
             width: 960px;
             margin: 0 auto;
+          }
+          .filter_container {
+            padding: 10px 5px;
+          }
+          .filter_container .filter_text {
+            width: 350px;
+            height: 30px;
+            padding: 3px 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            margin-right: 15px;
+          }
+          .filter_container .filter_search {
+            height: 36px;
+            padding: 0 15px;
+            background: #f60;
+            color: #fff;
+            border: none;
+            font-size: 16px;
+            border-radius: 3px;
+            cursor: pointer;
+          }
+          .clearfix {
             clear: both;
             overflow: hidden;
           }
@@ -118,30 +141,40 @@ class Shop extends Component {
 
         <h3 className="shop_header">XX 商城</h3>
 
+
         <div className="shop_container">
+          {/* 过滤显示 */}
+          <div className="filter_container">
+            <input type="text" className="filter_text" />
+            <button className="filter_search">Search</button>
+          </div>
 
-          {/* 商品列表 */}
-          <ul className="shopArea">
-            { shops.map((shop, index) => {
-              return (
-                <li className="shop_item" key={ index }>
-                  <img src={ shop.picture } alt=""/>
-                  <div>
-                    <h3 className="title">{ shop.name }</h3>
-                    <div className="price">￥<b>{ shop.price }</b></div>
-                    <div className="count">库存 <b>{ shop.count }</b></div>
-                    <div className="cart iconfont icon-PC-cart" onClick={onAddCart.bind(this, shop)}></div>
-                  </div>
-                </li>
-              );
-            }) }
-          </ul>
+          <div className="clearfix">
 
-          {/* 购物车 */}
-          <div className="myCart" onClick={ this.onShowLayer }>
-            <span className="iconfont icon-PC-cart"></span>
-            我的购物车
-            <i className="shop_num">{cart.total}</i>
+            {/* 商品列表 */}
+            <ul className="shopArea">
+              { shops.map((shop, index) => {
+                return (
+                  <li className="shop_item" key={ index }>
+                    <img src={ shop.picture } alt=""/>
+                    <div>
+                      <h3 className="title">{ shop.name }</h3>
+                      <div className="price">￥<b>{ shop.price }</b></div>
+                      <div className="count">库存 <b>{ shop.count }</b></div>
+                      <div className="cart iconfont icon-PC-cart" onClick={onAddCart.bind(this, shop)}></div>
+                    </div>
+                  </li>
+                );
+              }) }
+            </ul>
+
+            {/* 购物车 */}
+            <div className="myCart" onClick={ this.onShowLayer }>
+              <span className="iconfont icon-PC-cart"></span>
+              我的购物车
+              <i className="shop_num">{cart.total}</i>
+            </div>
+
           </div>
         </div>
         <CartUI isShow={this.state.isShow} cart_shop={cart} onCloseLayer={ this.onCloseLayer } onCartAdd={onCartAdd} onCartSubtract={onCartSubtract} />

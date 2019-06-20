@@ -140,9 +140,9 @@ function CartUI({cart_shop, isShow, onCloseLayer, onCartSubtract, onCartAdd}) {
                   <p className="shop_price">￥ <span>{item.price}</span></p>
                 </div>
                 <p className="shop_count">
-                  <span className={ item.cart_count == 1 ? "shop_count_subtract disabled" : "shop_count_subtract"} onClick={onCartSubtract.bind(this, index)}>-</span>
+                  <span className={ item.cart_count === 1 ? "shop_count_subtract disabled" : "shop_count_subtract"} onClick={onCartSubtract.bind(this, index)}>-</span>
                   <span className="cart_count">{item.cart_count}</span>
-                  <span className={ item.cart_count == item.count ? "shop_count_add disabled" : "shop_count_add"} onClick={onCartAdd.bind(this, index)}>+</span>
+                  <span className={ item.cart_count === item.count ? "shop_count_add disabled" : "shop_count_add"} onClick={onCartAdd.bind(this, index)}>+</span>
                 </p>
               </li>);
             }) }

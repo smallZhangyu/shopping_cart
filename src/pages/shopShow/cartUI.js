@@ -86,14 +86,14 @@ function CartUI({cart_shop, isShow, onCloseLayer, onCartSubtract, onCartAdd}) {
           line-height: 18px;
           font-size: 18px;
           cursor: pointer;
-        }
-        .shop_count_subtract {
           color: #666;
           border: 1px solid #ccc;
         }
-        .shop_count_add {
-          color: #666;
-          border: 1px solid #ccc;
+        .shop_count_subtract.disabled ,
+        .shop_count_add.disabled {
+          color: #aaa;
+          border: 1px solid #eee;
+          cursor: not-allowed;
         }
         .cart_count {
           margin: 0 5px;
@@ -140,9 +140,9 @@ function CartUI({cart_shop, isShow, onCloseLayer, onCartSubtract, onCartAdd}) {
                   <p className="shop_price">￥ <span>{item.price}</span></p>
                 </div>
                 <p className="shop_count">
-                  <span className="shop_count_subtract" onClick={onCartSubtract.bind(this, index)}>-</span>
+                  <span className={ item.cart_count == 1 ? "shop_count_subtract disabled" : "shop_count_subtract"} onClick={onCartSubtract.bind(this, index)}>-</span>
                   <span className="cart_count">{item.cart_count}</span>
-                  <span className="shop_count_add" onClick={onCartAdd.bind(this, index)}>+</span>
+                  <span className={ item.cart_count == item.count ? "shop_count_add disabled" : "shop_count_add"} onClick={onCartAdd.bind(this, index)}>+</span>
                 </p>
               </li>);
             }) }

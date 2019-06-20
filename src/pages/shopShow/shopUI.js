@@ -10,7 +10,7 @@ class Shop extends Component {
   }
 
   render() {
-    const { shops, cart, onAddCart, onCartSubtract, onCartAdd } = this.props;
+    const { shops, cart, onAddCart, onCartSubtract, onCartAdd, onPayToOrder } = this.props;
 
     return (
       <>
@@ -177,7 +177,7 @@ class Shop extends Component {
 
           </div>
         </div>
-        <CartUI isShow={this.state.isShow} cart_shop={cart} onCloseLayer={ this.onCloseLayer } onCartAdd={onCartAdd} onCartSubtract={onCartSubtract} />
+        <CartUI isShow={this.state.isShow} cart_shop={cart} onCloseLayer={ this.onCloseLayer } onCartAdd={onCartAdd} onCartSubtract={onCartSubtract} onPayToOrder={onPayToOrder} />
       </>
     );
   }

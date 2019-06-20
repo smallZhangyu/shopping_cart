@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function CartUI({cart_shop, isShow, onCloseLayer, onCartSubtract, onCartAdd}) {
+function CartUI({cart_shop, isShow, onCloseLayer, onCartSubtract, onCartAdd, onPayToOrder}) {
   return (
     <>
       <style jsx>{`
@@ -152,7 +152,7 @@ function CartUI({cart_shop, isShow, onCloseLayer, onCartSubtract, onCartAdd}) {
 
           <div className="layer_footer">
             <span className="payCount">￥ <span>{cart_shop.payTotal}</span></span>
-            <Link to="/order"><span className="payBtn">结 算</span></Link>
+            <Link to="/order"><span className="payBtn" onClick={onPayToOrder}>结 算</span></Link>
           </div>
 
         </div>

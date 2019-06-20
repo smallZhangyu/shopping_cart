@@ -1,22 +1,22 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addCartAction, cartCountAddAction, cartCountSubtractAction } from '../../store/shopShow/createActions';
+import { addCartAction, cartCountAddAction, cartCountSubtractAction, payToOrderAction } from '../../store/shopShow/createActions';
 
 import Shop  from './shopUI';
 
 class ShopShow extends Component {
   render() {
-    const { shops, cart, onAddCart, onCartAdd, onCartSubtract } = this.props;
+    const { shops, cart, onAddCart, onCartAdd, onCartSubtract, onPayToOrder } = this.props;
     return (
-      <Shop shops={shops} cart={cart} onAddCart={onAddCart} onCartAdd={onCartAdd} onCartSubtract={onCartSubtract} />
+      <Shop shops={shops} cart={cart} onAddCart={onAddCart} onCartAdd={onCartAdd} onCartSubtract={onCartSubtract} onPayToOrder={onPayToOrder} />
     );
   }
 }
 
 const mapStateToProps = (state) => {
   return {
-    shops: state.showReducers.shopList,
-    cart: state.showReducers.cart
+    shops: state.shopList,
+    cart: state.cart
   };
 }
 
@@ -34,6 +34,11 @@ const mapDispatchToProps = (dispatch) => {
 
     onCartSubtract: (index) => {
       const action = cartCountSubtractAction(index);
+      dispatch(action);
+    },
+
+    onPayToOrder: (cartShop) => {
+      const action = payToOrderAction(cartShop);
       dispatch(action);
     }
   };

@@ -1,4 +1,4 @@
-import { ADD_CART, CART_ADD_COUNT, CART_SUBSTRACT_COUNT } from './actionTypes';
+import { ADD_CART, CART_ADD_COUNT, CART_SUBSTRACT_COUNT, SHOW_ORDER } from './actionTypes';
 
 const defaultState = {
   shopList: [
@@ -37,7 +37,8 @@ const defaultState = {
     total: 0,
     payTotal: 0,
     cartList: []
-  }
+  },
+  orderList: []
 };
 
 export default function (state = defaultState, action) {
@@ -92,6 +93,13 @@ export default function (state = defaultState, action) {
           newState.cart.payTotal += item.price*item.cart_count;
         });
       }
+      return newState;
+
+    case SHOW_ORDER:
+      newState.orderList.push(newState.cart);
+      newState.cart.carList = [];
+      newState.cart.total = 0;
+      newState.cart.payTotal = 0;
       return newState;
 
     default:

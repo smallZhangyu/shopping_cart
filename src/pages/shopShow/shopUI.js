@@ -48,6 +48,7 @@ class Shop extends Component {
             font-size: 16px;
             border-radius: 3px;
             cursor: pointer;
+            font-weight: bold;
           }
           .clearfix {
             clear: both;
@@ -146,7 +147,7 @@ class Shop extends Component {
           {/* 过滤显示 */}
           <div className="filter_container">
             <input type="text" className="filter_text" />
-            <button className="filter_search">Search</button>
+            <button className="filter_search">搜索</button>
           </div>
 
           <div className="clearfix">

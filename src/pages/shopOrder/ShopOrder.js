@@ -17,6 +17,22 @@ class ShopOrder extends Component {
           font-size: 26px;
           line-height: 1.5;
         }
+        .order_item {
+          border: 1px solid #ddd;
+          padding-bottom: 20px;
+          margin-top: 15px;
+        }
+        .order_title {
+          background: #eee;
+          padding: 5px 10px;
+          color: #666;
+          font-size: 16px;
+          height: 30px;
+          line-height: 30px;
+        }
+        .order_title span {
+          margin-right: 10px;
+        }
         `}</style>
         <div className="container">
           <h3 className="page_title">已完成订单</h3>
@@ -24,11 +40,11 @@ class ShopOrder extends Component {
           <div className="order_list">
             {orderList.map((order, index) => {
               return (
-                <div className="order_item">
+                <div className="order_item" key={index}>
                   <h3 className="order_title">
-                    订单{index+1}：
-                    总件数：{order.total}
-                    总金额：{order.payTotal}
+                    <span>订单{index+1}：</span>
+                    <span>总件数：{order.total}</span>
+                    <span>总金额：{order.payTotal}</span>
                   </h3>
                 </div>
               );

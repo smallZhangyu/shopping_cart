@@ -1,5 +1,9 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+http://psgis.chinasofti.com/oa/SignOnServlet
+https://up.yorry.cn/?c=login
+https://mail.chinasofti.com/owa/auth/logon.aspx?replaceCurrent=1&reason=2&url=https%3a%2f%2fmail.chinasofti.com%2fowa%2f
+
 ## Available Scripts
 
 In the project directory, you can run:
